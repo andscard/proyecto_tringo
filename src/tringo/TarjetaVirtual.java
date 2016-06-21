@@ -324,7 +324,7 @@ public class TarjetaVirtual {
                         }
                     }//llave for m
                 }//llave for k
-
+                cont=0;
             }//llave for j  
         }//llave for i
 
@@ -336,10 +336,10 @@ public class TarjetaVirtual {
     public int verificarPuntosPorAreas(){
         int longitud=this.tab.length;
      
-        int area_22=this.verificarUnArea(2, 2, longitud-1,longitud-1);
+         int area_33=this.verificarUnArea(3, 3, longitud-2,longitud-2);
         int area_23=this.verificarUnArea(2, 3, longitud-1,longitud-2);
         int area_32=this.verificarUnArea(3, 2, longitud-2,longitud-1);
-        int area_33=this.verificarUnArea(3, 3, longitud-2,longitud-2);
+       int area_22=this.verificarUnArea(2, 2, longitud-1,longitud-1);
         
         if(area_33==1){
             System.out.println("Felicitaciones, ha llenado un área 3x3. Se le acreditan 40 puntos");
