@@ -15,6 +15,14 @@ public class Jugador {
     private int puntos;
     private TarjetaVirtual tarjeta;
     private InventarioFichas inventario;
+
+    public InventarioFichas getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(InventarioFichas inventario) {
+        this.inventario = inventario;
+    }
     
     public Jugador(String user){
         this.user=user;
@@ -92,7 +100,9 @@ public class Jugador {
             return;
         }
     }
-    
+    public void aumentaPuntos(int p){
+        this.puntos+=p;
+    }
     public void muestraInformacion() {
         System.out.println("\n*****Información de Jugador " + this.getUser() + " *****");
         System.out.println("\n>> Turno Número: " + this.getTurno());

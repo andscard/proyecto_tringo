@@ -5,6 +5,8 @@
  */
 package tringo;
 
+import java.util.Scanner;
+
 /**
  *
  * @author User
@@ -13,25 +15,74 @@ public class Tringo {
 
     /**
      * @param args the command line arguments
+     * @return 
      */
-    public static void main(String[] args) {
+     private static Juego juego;
+
+    public static String menuPrincipal(){
+        System.out.println("************Tringo***********");
+        System.out.println("1) Iniciar Juego");
+        System.out.println("2) Salir");
+        
+        Scanner s= new Scanner(System.in);
+        String i=s.next();
+        return i;
         
         
-        TarjetaVirtual m=new TarjetaVirtual();
-        Ficha fichaA= new Ficha("A");
+    }
+    public static  void main(String[] args) {
+        
+        
+        /*TarjetaVirtual m=new TarjetaVirtual();
+        Ficha fichaE= new Ficha("E");
+        Ficha fichaD= new Ficha("D");
+        Ficha fichaC= new Ficha("C");
         m.llenarTarjeta();
         
-        m.ubicarFichaA(fichaA,7);
-        m.ubicarFichaA(fichaA,8);
-        m.ubicarFichaA(fichaA,9);
+        m.ubicarFichaE(fichaE,18);
+        m.ubicarFichaD(fichaD,13);
+        m.ubicarFichaC(fichaC,9);
         m.imprimirTarjeta();
         System.out.println("\n");
         m.verificarPuntosPorAreas();
         m.imprimirTarjeta();
+        */
         
         
+        while(true){
+           String opcion= Tringo.menuPrincipal();
+           switch(opcion){
+               case "1":
+                   System.out.println("iniciar juego");
+                   String user="jugador";//scanner
+                   Tringo.iniciaJuego(user);
+                   break;
+               case "2":
+                   return ;
+               default:
+                   System.out.println("Opción no válida");
+                   break;
+           }
+        
+        }
         //int numAleatorio = (int) Math.floor(Math.random() * (16 - 0) + 0); 
       // System.out.println("Ingrese número de celda para la base de la ficha: "+numAleatorio);
     }
+    
+    public static void iniciaJuego(String user) {
+    
+        Tringo.juego=new Juego(user);
+        juego.getTarjeta().imprimirTarjeta();
+        while(Tringo.juego.getJugador().getInventario().sizeInventario()>0){
+        Tringo.juego.ejecutaTurno();
+        }
+        if(Tringo.juego.getJugador().getInventario().sizeInventario()==0){
+            System.out.println("Se han terminado las fichas, juego terminado");
+            
+        }
+    
+    }
+    
+    
     
 }
