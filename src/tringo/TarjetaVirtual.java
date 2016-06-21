@@ -15,171 +15,322 @@ public class TarjetaVirtual {
     private Casillero [][]tab;
     
     public TarjetaVirtual(){
-            this.tab=new Casillero[5][5];
-   
+        this.tab=new Casillero[5][5];
     }
     
     
-    public void llenarTarjeta(){
-        int cont=0;
-        for(int i=0; i<this.tab.length;i++){
-               for(int j=0; j<this.tab.length;j++){
-                   cont=cont+1;
-                   this.tab[i][j]=new Casillero(cont,1);
+    public void llenarTarjeta() {
+        int cont = 0;
+        for (int i = 0; i < this.tab.length; i++) {
+            for (int j = 0; j < this.tab.length; j++) {
+                cont = cont + 1;
+                this.tab[i][j] = new Casillero(cont, 1);
+            }
+
         }
-        
+    }
+    
+    public int estadoCasillero(Ficha ficha, int x, int y) {
+        switch (ficha.getNombre()) {
+            case "A":
+                if (this.tab[x][y].getEstado() == 1
+                        && this.tab[x + 1][y].getEstado() == 1) {
+                    return 1;
+                }
+                break;
+            case "B":
+                if (this.tab[x][y].getEstado() == 1
+                        && this.tab[x][y - 1].getEstado() == 1
+                        && this.tab[x][y + 1].getEstado() == 1
+                        && this.tab[x - 1][y + 1].getEstado() == 1) {
+                    return 1;
+                }
+                break;
+            case "C":
+                if (this.tab[x][y].getEstado() == 1
+                        && this.tab[x][y - 1].getEstado() == 1
+                        && this.tab[x][y + 1].getEstado() == 1
+                        && this.tab[x - 1][y].getEstado() == 1) {
+                    return 1;
+                }
+                break;
+            case "D":
+                if (this.tab[x][y].getEstado() == 1
+                        && this.tab[x][y - 1].getEstado() == 1
+                        && this.tab[x][y - 2].getEstado() == 1
+                        && this.tab[x][y + 1].getEstado() == 1) {
+                    return 1;
+                }
+                break;
+            case "E":
+                if (this.tab[x][y].getEstado() == 1
+                        && this.tab[x][y + 1].getEstado() == 1
+                        && this.tab[x + 1][y].getEstado() == 1
+                        && this.tab[x + 1][y - 1].getEstado() == 1) {
+                    return 1;
+                }
+                break;
+            case "F":
+                if (this.tab[x][y].getEstado() == 1
+                        && this.tab[x + 1][y].getEstado() == 1
+                        && this.tab[x][y - 1].getEstado() == 1
+                        && this.tab[x - 1][y - 1].getEstado() == 1) {
+                    return 1;
+                }
+                break;
+            default:
+                break;
         }
+
+        return 0;
+
     }
     
         
     
-public void ubicarFichaA(Ficha fichaA,int posicion){
-         
-          int check=0;
-          for(int i=0; i<this.tab.length-1;i++){
-               for(int j=0; j<this.tab.length;j++){
-                  if(this.tab[i][j].getContenido()==posicion&&this.tab[i][j].getEstado()==1){
-                      
-                           check=1;
-                           this.tab[i][j].setEstado(0);
-                           this.tab[i+1][j].setEstado(0);
-                           break;
-                      } 
-                         }  
-                     }
-                 
-                  if(check==1){
-                           fichaA.mensajeFichaUbicada(1);}  
-                         else
-                         {
-                            fichaA.mensajeFichaUbicada(0);  
-                         }
-    
-      }
-      
-      
-    /*  public void ubicarFichaB(int posicion){
-      
-          Ficha fichaA= new Ficha("A",2);
-          for(int i=0; i<this.tab.length;i++){
-               for(int j=0; j<this.tab.length;j++){
-                   if (i!=4 && (this.tab[i][j].getContenido==posicion)){
-                   
-                            if(this.tab[i][j].getEstado()==1){
-                                
-                                this.tab[i][j].setContenido(0);
-                                this.tab[i+1][j].setContenido(0);
-                            }  
-                 
-                            
-                      fichaA.mensajeFichaUbicada(1);
-                       
-                       //this.tab[i][j].setEstado(0);
-             }
-                   else {
-                   fichaA.mensajeFichaUbicada(0);
-                   }
-                  }
-      
-      
-      }
-    
-          
-          
-          
-          
-      
-      }*/
-    
-      
-      public void ubicarFichaC(int posicion){
-     
-      
-      }
-    
-      
-      public void ubicarFichaD(int posicion){
-     
-      
-      }
-    
-    
-        public void ubicarFicha(Ficha ficha, int posicion){
-        int cont=0;
-        
-                   if (ficha.getNombre()=="A"){
-                       this.ubicarFichaA(posicion);
-                   }
-                   
-                   if (ficha.getNombre()=="B"){
-                   }
-                   if (ficha.getNombre()=="C"){
-                   }
-                   if (ficha.getNombre()=="D"){
-                   }
-                   if (ficha.getNombre()=="E"){
-                   }
-                   if (ficha.getNombre()=="F"){
-                   }
-                   if (ficha.getNombre()=="G"){
-                                   }
-        
-        
-        
-    }
-        
-        
-    public void setEstadoCasillero(int filas, int columnas, int i, int j){
-        Casillero cas;
-        for(int k=0; k<filas;k++){
-                for(int m=0; m<columnas;m++){
-                    cas=this.tab[k+i][m+j];
-                    cas.setEstado(1);
-                    System.out.println("\n\n");
-                    this.imprimirTarjeta();
-                }        
-        }
-    }   
-    
-    public int verificarUnArea(int filas, int columnas, int longitud1, int longitud2){
-     int cont =0;
-     int valor=0;
-     int check=0;
-     
-    
-         for(int i=0; i<longitud1;i++){
-            for(int j=0; j<longitud2;j++){
-               Casillero cas;
-               while(check!=1){
-               for(int k=0; k<filas;k++){
-                    for(int m=0; m<columnas;m++){
-                        cas=this.tab[k+i][m+j];
-                     
-                        if (cas.getEstado()==1){check=1;
+    public void ubicarFichaA(Ficha fichaA, int posicion) {
+
+        int check = 0;
+        for (int i = 0; i < this.tab.length - 1; i++) {
+            for (int j = 0; j < this.tab.length; j++) {
+                if (this.tab[i][j].getContenido() == posicion && this.tab[i][j].getEstado() == 1) {
+                    if (this.estadoCasillero(fichaA, i, j) == 1) {
+                        check = 1;
+                        this.tab[i][j].setEstado(0);
+                        this.tab[i + 1][j].setEstado(0);
                         break;
+                    }
+                }
+
+            }
+
+        }
+
+        if (check == 1) {
+            fichaA.mensajeFichaUbicada(1);
+        } else {
+            fichaA.mensajeFichaUbicada(0);
+        }
+
+    }
+
+    public void ubicarFichaB(Ficha fichaB, int posicion) {
+        int check = 0;
+        for (int i = 1; i < this.tab.length - 1; i++) {
+            for (int j = 1; j < this.tab.length - 1; j++) {
+
+                if ((this.tab[i][j].getContenido() == posicion) && (this.tab[i][j].getEstado() == 1)) {
+                    if (this.estadoCasillero(fichaB, i, j) == 1) {
+
+                        check = 1;
+                        this.tab[i][j].setEstado(0);
+                        this.tab[i][j - 1].setEstado(0);
+                        this.tab[i][j + 1].setEstado(0);
+                        this.tab[i - 1][j + 1].setEstado(0);
+
+                        break;
+                    }
+                }
+
+            }
+        }
+
+        if (check == 1) {
+            fichaB.mensajeFichaUbicada(1);
+        } else {
+            fichaB.mensajeFichaUbicada(0);
+        }
+    }
+
+    public void ubicarFichaC(Ficha fichaC, int posicion) {
+        int check = 0;
+
+        for (int i = 1; i < this.tab.length - 1; i++) {
+            for (int j = 1; j < this.tab.length - 1; j++) {
+
+                if ((this.tab[i][j].getContenido() == posicion) && (this.tab[i][j].getEstado() == 1)) {
+                    if (this.estadoCasillero(fichaC, i, j) == 1) {
+                        check = 1;
+                        this.tab[i][j].setEstado(0);
+                        this.tab[i][j - 1].setEstado(0);
+                        this.tab[i][j + 1].setEstado(0);
+                        this.tab[i - 1][j].setEstado(0);
+                        break;
+                    }
+
+                }
+            }
+        }
+        if (check == 1) {
+            fichaC.mensajeFichaUbicada(1);
+        } else {
+            fichaC.mensajeFichaUbicada(0);
+        }
+
+    }
+
+    public void ubicarFichaD(Ficha fichaD, int posicion) {
+        int check = 0;
+
+        for (int i = 0; i < this.tab.length; i++) {
+            for (int j = 2; j < this.tab.length - 1; j++) {
+
+                if ((this.tab[i][j].getContenido() == posicion) && (this.tab[i][j].getEstado() == 1)) {
+                    if (this.estadoCasillero(fichaD, i, j) == 1) {
+
+                        check = 1;
+                        this.tab[i][j].setEstado(0);
+                        this.tab[i][j - 1].setEstado(0);
+                        this.tab[i][j - 2].setEstado(0);
+                        this.tab[i][j + 1].setEstado(0);
+
+                        break;
+                    }
+                }
+
+            }
+        }
+        if (check == 1) {
+            fichaD.mensajeFichaUbicada(1);
+        } else {
+            fichaD.mensajeFichaUbicada(0);
+        }
+
+    }
+
+    public void ubicarFichaE(Ficha fichaE, int posicion) {
+        int check = 0;
+        for (int i = 0; i < this.tab.length - 1; i++) {
+            for (int j = 1; j < this.tab.length - 1; j++) {
+
+                if ((this.tab[i][j].getContenido() == posicion) && (this.tab[i][j].getEstado() == 1)) {
+                    if (this.estadoCasillero(fichaE, i, j) == 1) {
+
+                        check = 1;
+                        this.tab[i][j].setEstado(0);
+                        this.tab[i][j + 1].setEstado(0);
+                        this.tab[i + 1][j].setEstado(0);
+                        this.tab[i + 1][j - 1].setEstado(0);
+
+                        break;
+                    }
+
+                }
+
+            }
+        }
+        if (check == 1) {
+            fichaE.mensajeFichaUbicada(1);
+        } else {
+            fichaE.mensajeFichaUbicada(0);
+        }
+
+    }
+
+    public void ubicarFichaF(Ficha fichaF, int posicion) {
+        int check = 0;
+        for (int i = 1; i < this.tab.length - 1; i++) {
+            for (int j = 1; j < this.tab.length - 1; j++) {
+
+                if ((this.tab[i][j].getContenido() == posicion) && (this.tab[i][j].getEstado() == 1)) {
+                    if (this.estadoCasillero(fichaF, i, j) == 1) {
+
+                        check = 1;
+                        this.tab[i][j].setEstado(0);
+                        this.tab[i + 1][j].setEstado(0);
+                        this.tab[i][j - 1].setEstado(0);
+                        this.tab[i - 1][j - 1].setEstado(0);
+
+                        break;
+                    }
+
+                }
+
+            }
+        }
+        if (check == 1) {
+            fichaF.mensajeFichaUbicada(1);
+        } else {
+            fichaF.mensajeFichaUbicada(0);
+        }
+
+    }
+
+    public void ubicarFichaTablero(Ficha ficha, int posicion) {
+
+        if (ficha.getNombre() == "A") {
+            this.ubicarFichaA(ficha, posicion);
+        }
+
+        if (ficha.getNombre() == "B") {
+            this.ubicarFichaB(ficha, posicion);
+        }
+        if (ficha.getNombre() == "C") {
+            this.ubicarFichaC(ficha, posicion);
+        }
+        if (ficha.getNombre() == "D") {
+            this.ubicarFichaD(ficha, posicion);
+        }
+        if (ficha.getNombre() == "E") {
+            this.ubicarFichaE(ficha, posicion);
+        }
+        if (ficha.getNombre() == "F") {
+            this.ubicarFichaF(ficha, posicion);
+        }
+
+    }
+
+    public void setEstadoCasillero(int filas, int columnas, int i, int j) {
+        Casillero cas;
+        for (int k = 0; k < filas; k++) {
+            for (int m = 0; m < columnas; m++) {
+                cas = this.tab[k + i][m + j];
+                cas.setEstado(1);
+                System.out.println("\n");
+                
+            }
+        }
+        this.imprimirTarjeta();
+    }
+
+    public int verificarUnArea(int filas, int columnas, int longitud1, int longitud2) {
+        int cont = 0;
+        int valor = 0;
+
+        for (int i = 0; i < longitud1; i++) {
+            for (int j = 0; j < longitud2; j++) {
+                Casillero cas;
+
+                for (int k = 0; k < filas; k++) {
+                    for (int m = 0; m < columnas; m++) {
+                        cas = this.tab[k + i][m + j];
+
+                        if (cas.getEstado() == 1) {
+                            //check = 1;
+                            break;
                         }
-                        if (cas.getEstado()==0){cont++;
-                        System.out.println("\nCasillero ocupado"+(k+i)+" "+(m+j));}
-                        
-                        if (cont==(filas*columnas)){
+                        if (cas.getEstado() == 0) {
+                            cont++;
+                            System.out.println("\nCasillero ocupado" + (k + i) + " " + (m + j));
+                        }
+
+                        if (cont == (filas * columnas)) {
                             this.setEstadoCasillero(filas, columnas, i, j);
-                            valor=1;
-                            System.out.println("Contador: "+cont);
+                            valor = 1;
+                            System.out.println("Contador: " + cont);
                             return valor;
-                        }else{
-                            valor=0;}
+                        } else {
+                            valor = 0;
+                        }
                     }//llave for m
                 }//llave for k
-               }
-               check=0;
-              
+
             }//llave for j  
         }//llave for i
-    
-         valor=0;
-         return valor;
-     
-    
+
+        valor = 0;
+        return valor;
+
     }
     
     public int verificarPuntosPorAreas(){
@@ -223,8 +374,5 @@ public void ubicarFichaA(Ficha fichaA,int posicion){
         }
     
     }
-    
-    
-    
-    
+   
 }

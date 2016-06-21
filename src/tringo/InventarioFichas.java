@@ -42,7 +42,7 @@ public class InventarioFichas {
     }
     
     public int sizeInventario(){   
-        return this.sizeInventario();
+        return inventario.size();
     }
     
     public Ficha generaFichaAleatoria(){
@@ -62,7 +62,7 @@ public class InventarioFichas {
         String letraFicha;
         
         letraFicha=ficha.getNombre();
-        System.out.println("Ficha en juego: "+letraFicha);
+        System.out.println("\nFicha en juego: "+letraFicha);
     }
    
     
