@@ -53,6 +53,8 @@ public class InventarioFichas {
         
         if(longitud==0){
         System.out.println("Sus fichas se han terminado");
+        
+        return null;
         }
         
         return ficha=inventario.remove(numAleatorio);

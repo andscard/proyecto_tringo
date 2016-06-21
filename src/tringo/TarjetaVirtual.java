@@ -16,6 +16,7 @@ public class TarjetaVirtual {
     
     public TarjetaVirtual(){
         this.tab=new Casillero[5][5];
+        this.llenarTarjeta();
     }
     
     
@@ -88,7 +89,7 @@ public class TarjetaVirtual {
     
         
     
-    public void ubicarFichaA(Ficha fichaA, int posicion) {
+    public int ubicarFichaA(Ficha fichaA, int posicion) {
 
         int check = 0;
         for (int i = 0; i < this.tab.length - 1; i++) {
@@ -110,11 +111,12 @@ public class TarjetaVirtual {
             fichaA.mensajeFichaUbicada(1);
         } else {
             fichaA.mensajeFichaUbicada(0);
-        }
+      }
+        return check;
 
     }
 
-    public void ubicarFichaB(Ficha fichaB, int posicion) {
+    public int  ubicarFichaB(Ficha fichaB, int posicion) {
         int check = 0;
         for (int i = 1; i < this.tab.length - 1; i++) {
             for (int j = 1; j < this.tab.length - 1; j++) {
@@ -140,9 +142,10 @@ public class TarjetaVirtual {
         } else {
             fichaB.mensajeFichaUbicada(0);
         }
+        return check;
     }
 
-    public void ubicarFichaC(Ficha fichaC, int posicion) {
+    public int ubicarFichaC(Ficha fichaC, int posicion) {
         int check = 0;
 
         for (int i = 1; i < this.tab.length - 1; i++) {
@@ -166,10 +169,12 @@ public class TarjetaVirtual {
         } else {
             fichaC.mensajeFichaUbicada(0);
         }
+        
+        return check;
 
     }
 
-    public void ubicarFichaD(Ficha fichaD, int posicion) {
+    public int ubicarFichaD(Ficha fichaD, int posicion) {
         int check = 0;
 
         for (int i = 0; i < this.tab.length; i++) {
@@ -195,10 +200,11 @@ public class TarjetaVirtual {
         } else {
             fichaD.mensajeFichaUbicada(0);
         }
+        return check;
 
     }
 
-    public void ubicarFichaE(Ficha fichaE, int posicion) {
+    public int ubicarFichaE(Ficha fichaE, int posicion) {
         int check = 0;
         for (int i = 0; i < this.tab.length - 1; i++) {
             for (int j = 1; j < this.tab.length - 1; j++) {
@@ -224,10 +230,11 @@ public class TarjetaVirtual {
         } else {
             fichaE.mensajeFichaUbicada(0);
         }
+        return check;
 
     }
 
-    public void ubicarFichaF(Ficha fichaF, int posicion) {
+    public int ubicarFichaF(Ficha fichaF, int posicion) {
         int check = 0;
         for (int i = 1; i < this.tab.length - 1; i++) {
             for (int j = 1; j < this.tab.length - 1; j++) {
@@ -253,30 +260,32 @@ public class TarjetaVirtual {
         } else {
             fichaF.mensajeFichaUbicada(0);
         }
+        return check;
 
     }
 
-    public void ubicarFichaTablero(Ficha ficha, int posicion) {
+    public int ubicarFichaTablero(Ficha ficha, int posicion) {
 
         if (ficha.getNombre() == "A") {
-            this.ubicarFichaA(ficha, posicion);
+            return this.ubicarFichaA(ficha, posicion);
         }
 
         if (ficha.getNombre() == "B") {
-            this.ubicarFichaB(ficha, posicion);
+          return  this.ubicarFichaB(ficha, posicion);
         }
         if (ficha.getNombre() == "C") {
-            this.ubicarFichaC(ficha, posicion);
+           return  this.ubicarFichaC(ficha, posicion);
         }
         if (ficha.getNombre() == "D") {
-            this.ubicarFichaD(ficha, posicion);
+           return  this.ubicarFichaD(ficha, posicion);
         }
         if (ficha.getNombre() == "E") {
-            this.ubicarFichaE(ficha, posicion);
+           return  this.ubicarFichaE(ficha, posicion);
         }
         if (ficha.getNombre() == "F") {
-            this.ubicarFichaF(ficha, posicion);
+           return this.ubicarFichaF(ficha, posicion);
         }
+        return 0;
 
     }
 
@@ -292,7 +301,7 @@ public class TarjetaVirtual {
         }
         this.imprimirTarjeta();
     }
-
+    
     public int verificarUnArea(int filas, int columnas, int longitud1, int longitud2) {
         int cont = 0;
         int valor = 0;
@@ -311,7 +320,6 @@ public class TarjetaVirtual {
                         }
                         if (cas.getEstado() == 0) {
                             cont++;
-                            System.out.println("\nCasillero ocupado" + (k + i) + " " + (m + j));
                         }
 
                         if (cont == (filas * columnas)) {
@@ -324,7 +332,7 @@ public class TarjetaVirtual {
                         }
                     }//llave for m
                 }//llave for k
-
+                cont=0;
             }//llave for j  
         }//llave for i
 
@@ -336,10 +344,10 @@ public class TarjetaVirtual {
     public int verificarPuntosPorAreas(){
         int longitud=this.tab.length;
      
-        int area_22=this.verificarUnArea(2, 2, longitud-1,longitud-1);
+        int area_33=this.verificarUnArea(3, 3, longitud-2,longitud-2);
         int area_23=this.verificarUnArea(2, 3, longitud-1,longitud-2);
         int area_32=this.verificarUnArea(3, 2, longitud-2,longitud-1);
-        int area_33=this.verificarUnArea(3, 3, longitud-2,longitud-2);
+        int area_22=this.verificarUnArea(2, 2, longitud-1,longitud-1);
         
         if(area_33==1){
             System.out.println("Felicitaciones, ha llenado un área 3x3. Se le acreditan 40 puntos");
