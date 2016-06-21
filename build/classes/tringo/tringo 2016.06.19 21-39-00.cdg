@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="tringo">
+  <ClassDiagramComponents>
+    <Class name="Casillero" package="tringo" visibility="public" xPosition="180.0" yPosition="334.0">
+      <Fields>
+        <Field name="contenido" type="int" visibility="private"/>
+        <Field name="estado" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="cont"/>
+          <Argument type="int" name="estad"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getContenido" returnType="int" visibility="public"/>
+        <Method name="setContenido" returnType="void" visibility="public">
+          <Argument type="int" name="cont"/>
+        </Method>
+        <Method name="getEstado" returnType="int" visibility="public"/>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="int" name="estado"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Ficha" package="tringo" visibility="public" xPosition="320.0" yPosition="47.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="mensajeFichaUbicada" returnType="void" visibility="public">
+          <Argument type="int" name="valor"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="InventarioFichas" package="tringo" visibility="public" xPosition="703.0" yPosition="47.0">
+      <Fields>
+        <Field name="inventario" type="ArrayList&lt;Ficha&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="sizeInventario" returnType="int" visibility="public"/>
+        <Method name="generaFichaAleatoria" returnType="Ficha" visibility="public"/>
+        <Method name="mensajeFichaEnJuego" returnType="void" visibility="public">
+          <Argument type="Ficha" name="ficha"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Jugador" package="tringo" visibility="public" xPosition="1042.0" yPosition="146.0">
+      <Fields>
+        <Field name="user" type="String" visibility="private"/>
+        <Field name="turno" type="int" visibility="private"/>
+        <Field name="puntos" type="int" visibility="private"/>
+        <Field name="tarjeta" type="TarjetaVirtual" visibility="private"/>
+        <Field name="inventario" type="InventarioFichas" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="user"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getUser" returnType="String" visibility="public"/>
+        <Method name="setUser" returnType="void" visibility="public">
+          <Argument type="String" name="user"/>
+        </Method>
+        <Method name="getTurno" returnType="int" visibility="public"/>
+        <Method name="setTurno" returnType="void" visibility="public">
+          <Argument type="int" name="turno"/>
+        </Method>
+        <Method name="getPuntos" returnType="int" visibility="public"/>
+        <Method name="setPuntos" returnType="void" visibility="public">
+          <Argument type="int" name="puntos"/>
+        </Method>
+        <Method name="validarCeldaIngresada" returnType="void" visibility="public">
+          <Argument type="int" name="celda_tarjeta"/>
+        </Method>
+        <Method name="FichaEnJuego" returnType="Ficha" visibility="public"/>
+        <Method name="saltarFicha" returnType="void" visibility="public">
+          <Argument type="int" name="centinela"/>
+        </Method>
+        <Method name="tiempoLimiteExcedido" returnType="void" visibility="public">
+          <Argument type="int" name="valor"/>
+        </Method>
+        <Method name="muestraInformacion" returnType="void" visibility="public"/>
+        <Method name="ubicarFichaJugador" returnType="void" visibility="public">
+          <Argument type="int" name="celda_tablero"/>
+          <Argument type="Ficha" name="ficha"/>
+        </Method>
+        <Method name="terminaJuego" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TarjetaVirtual" package="tringo" visibility="public" xPosition="487.0" yPosition="298.0">
+      <Fields>
+        <Field name="tab" type="Casillero[][]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="llenarTarjeta" returnType="void" visibility="public"/>
+        <Method name="estadoCasillero" returnType="int" visibility="public">
+          <Argument type="Ficha" name="ficha"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="ubicarFichaA" returnType="void" visibility="public">
+          <Argument type="Ficha" name="fichaA"/>
+          <Argument type="int" name="posicion"/>
+        </Method>
+        <Method name="ubicarFichaB" returnType="void" visibility="public">
+          <Argument type="Ficha" name="fichaB"/>
+          <Argument type="int" name="posicion"/>
+        </Method>
+        <Method name="ubicarFichaC" returnType="void" visibility="public">
+          <Argument type="Ficha" name="fichaC"/>
+          <Argument type="int" name="posicion"/>
+        </Method>
+        <Method name="ubicarFichaD" returnType="void" visibility="public">
+          <Argument type="Ficha" name="fichaD"/>
+          <Argument type="int" name="posicion"/>
+        </Method>
+        <Method name="ubicarFichaE" returnType="void" visibility="public">
+          <Argument type="Ficha" name="fichaE"/>
+          <Argument type="int" name="posicion"/>
+        </Method>
+        <Method name="ubicarFichaF" returnType="void" visibility="public">
+          <Argument type="Ficha" name="fichaF"/>
+          <Argument type="int" name="posicion"/>
+        </Method>
+        <Method name="ubicarFichaTablero" returnType="void" visibility="public">
+          <Argument type="Ficha" name="ficha"/>
+          <Argument type="int" name="posicion"/>
+        </Method>
+        <Method name="setEstadoCasillero" returnType="void" visibility="public">
+          <Argument type="int" name="filas"/>
+          <Argument type="int" name="columnas"/>
+          <Argument type="int" name="i"/>
+          <Argument type="int" name="j"/>
+        </Method>
+        <Method name="verificarUnArea" returnType="int" visibility="public">
+          <Argument type="int" name="filas"/>
+          <Argument type="int" name="columnas"/>
+          <Argument type="int" name="longitud1"/>
+          <Argument type="int" name="longitud2"/>
+        </Method>
+        <Method name="verificarPuntosPorAreas" returnType="int" visibility="public"/>
+        <Method name="imprimirTarjeta" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Tringo" package="tringo" visibility="public" xPosition="1082.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Está compuesta de " source="tringo.TarjetaVirtual" target="tringo.Casillero" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <UseRelation source="tringo.TarjetaVirtual" target="tringo.Ficha" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="tringo.InventarioFichas" target="tringo.Ficha" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="inventario" source="tringo.Jugador" target="tringo.InventarioFichas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="tringo.Jugador" target="tringo.Ficha" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="" source="tringo.Jugador" target="tringo.TarjetaVirtual" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
