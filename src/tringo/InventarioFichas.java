@@ -52,7 +52,8 @@ public class InventarioFichas {
         int numAleatorio = (int) Math.floor(Math.random() * (longitud - 0) + 0);
         
         if(longitud==0){
-        System.out.println("Sus fichas se han terminado");}
+        System.out.println("Sus fichas se han terminado");
+        }
         
         return ficha=inventario.remove(numAleatorio);
     }

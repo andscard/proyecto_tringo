@@ -25,9 +25,7 @@ public class Ficha {
         this.nombre = nombre;
     }
 
-    
-    
-    
+        
     
     public void mensajeFichaUbicada(int valor){
         if (valor==1){
@@ -39,6 +37,42 @@ public class Ficha {
     }
     
     
+    public void imprimirFicha (){
+        switch(this.nombre){
+            
+            case "A":
+                System.out.println("         _ _");
+                System.out.println("        |_ _|");
+                System.out.println("        |_*_|");
+
+                break;
+            case "B":
+                System.out.println("             _ _");
+                System.out.println("     _ _ _ _|_ _|");
+                System.out.println("    |_ _|_*_|_ _|");
+                break;
+            case "C":
+                System.out.println("         _ _");
+                System.out.println("     _ _|_ _|_ _");
+                System.out.println("    |_ _|_*_|_ _|");
+                break;
+            case "D":
+                System.out.println("     _ _ _ _ _ _ _ _");
+                System.out.println("    |_ _|_ _|_*_|_ _|");
+                break;
+            case "E":
+                System.out.println("         _ _ _ _");
+                System.out.println("     _ _|_ _|_ _|");
+                System.out.println("    |_ _|_*_|");
+                break;
+            case "F":
+                System.out.println("     _ _ ");
+                System.out.println("    |_ _|_ _");
+                System.out.println("    |_ _|_*_|");
+                System.out.println("        |_ _|");
+                break;
+        }
+    }
     
     
     
