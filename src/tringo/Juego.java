@@ -38,37 +38,50 @@ public class Juego {
         this.tarjeta = tarjeta;
     }
     
-    
+    public void muestraInformacion() {
+        System.out.println("\n/////////////////////////////////////////////////////////////////////");
+        System.out.println("\n***** Jugador " + this.jugador.getUser() + " *****");
+        System.out.println(">> Turno Número: " + this.jugador.getTurno());
+        System.out.println(">> Puntaje Acumulado: " + this.jugador.getPuntos());
+ 
+    }
+
     
     public void ejecutaTurno(){
         Scanner sc=new Scanner(System.in);
         if(this.jugador.getInventario().sizeInventario()!=0){
-              
+            this.muestraInformacion();
             Ficha ficha=jugador.FichaEnJuego();
             ficha.imprimirFicha();
-             temporizadorTurno temp;
-              temp=new temporizadorTurno();
-               temp.start();
+            temporizadorTurno temp;
+            temp=new temporizadorTurno();
+            temp.start();
            
             try{
                 int valido=0;
                 while(valido==0){
-                System.out.println("Ingrese celda para la base(1 al 25 [-1 para saltar ficha]): ");
+                System.out.println("\n-Ingrese celda para la base(1 al 25), si desea saltar la ficha ingrese -1:");
                 
                 String op=sc.next();
                 int posicion= Integer.parseInt(op);
                 
                 if(posicion ==-1){
+                    this.jugador.aumentaPuntos(-7);
+                    System.out.println("\n      _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __");
+                    System.out.println("        Usted ha saltado la ficha, pierde 7 puntos");
+                    System.out.println("        - - - - - - - - - - - - - - - - - - - - --\n");
                     temp.setDisminuir(0);
                     valido=1;
                     }
                 else if(posicion==-2){
                     valido=1;
                     this.jugador.aumentaPuntos(-7);
-                    System.out.println("***Ha perdido 7 puntos***");
+                    System.out.println("\n       _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
+                    System.out.println("        Usted ha excedido el tiempo límite, pierde 7 puntos ");
+                    System.out.println("        - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
                 }
                 else{
-                                        temp.setDisminuir(0);
+                     temp.setDisminuir(0);
                     valido=this.tarjeta.ubicarFichaTablero(ficha, posicion);
                     }
                 

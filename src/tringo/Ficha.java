@@ -29,9 +29,9 @@ public class Ficha {
     
     public void mensajeFichaUbicada(int valor){
         if (valor==1){
-            System.out.println("Celda válida. La ficha "+this.getNombre()+" ha sido colocada");
+            System.out.println("\n      *****Celda válida. La ficha "+this.getNombre()+" ha sido colocada*****");
         }else{
-            System.out.println("Celda inválida. No es posible colocar ficha "+this.getNombre());
+            System.out.println("\n      *****Celda inválida. No es posible colocar ficha "+this.getNombre()+" *****");
         }
         
     }

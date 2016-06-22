@@ -32,6 +32,9 @@ public class InventarioFichas {
         inventario.add(fichaB);
         inventario.add(fichaC);
         inventario.add(fichaC);
+        inventario.add(fichaC);
+        inventario.add(fichaD);
+        inventario.add(fichaD);
         inventario.add(fichaE);
         inventario.add(fichaE);
         inventario.add(fichaE);
@@ -65,7 +68,7 @@ public class InventarioFichas {
         String letraFicha;
         
         letraFicha=ficha.getNombre();
-        System.out.println("\nFicha en juego: "+letraFicha);
+        System.out.println(">>Ficha en juego: "+letraFicha);
     }
    
     

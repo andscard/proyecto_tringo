@@ -102,16 +102,14 @@ public class TarjetaVirtual {
                         break;
                     }
                 }
-
             }
-
         }
 
         if (check == 1) {
             fichaA.mensajeFichaUbicada(1);
         } else {
             fichaA.mensajeFichaUbicada(0);
-      }
+        }
         return check;
 
     }
@@ -148,7 +146,7 @@ public class TarjetaVirtual {
     public int ubicarFichaC(Ficha fichaC, int posicion) {
         int check = 0;
 
-        for (int i = 1; i < this.tab.length - 1; i++) {
+        for (int i = 1; i < this.tab.length; i++) {
             for (int j = 1; j < this.tab.length - 1; j++) {
 
                 if ((this.tab[i][j].getContenido() == posicion) && (this.tab[i][j].getEstado() == 1)) {
@@ -160,7 +158,6 @@ public class TarjetaVirtual {
                         this.tab[i - 1][j].setEstado(0);
                         break;
                     }
-
                 }
             }
         }
@@ -220,9 +217,7 @@ public class TarjetaVirtual {
 
                         break;
                     }
-
                 }
-
             }
         }
         if (check == 1) {
@@ -237,7 +232,7 @@ public class TarjetaVirtual {
     public int ubicarFichaF(Ficha fichaF, int posicion) {
         int check = 0;
         for (int i = 1; i < this.tab.length - 1; i++) {
-            for (int j = 1; j < this.tab.length - 1; j++) {
+            for (int j = 1; j < this.tab.length; j++) {
 
                 if ((this.tab[i][j].getContenido() == posicion) && (this.tab[i][j].getEstado() == 1)) {
                     if (this.estadoCasillero(fichaF, i, j) == 1) {
@@ -250,9 +245,7 @@ public class TarjetaVirtual {
 
                         break;
                     }
-
                 }
-
             }
         }
         if (check == 1) {
@@ -261,8 +254,8 @@ public class TarjetaVirtual {
             fichaF.mensajeFichaUbicada(0);
         }
         return check;
-
     }
+    
 
     public int ubicarFichaTablero(Ficha ficha, int posicion) {
 
@@ -294,12 +287,9 @@ public class TarjetaVirtual {
         for (int k = 0; k < filas; k++) {
             for (int m = 0; m < columnas; m++) {
                 cas = this.tab[k + i][m + j];
-                cas.setEstado(1);
-                System.out.println("\n");
-                
+                cas.setEstado(1);    
             }
-        }
-        this.imprimirTarjeta();
+        }  
     }
     
     public int verificarUnArea(int filas, int columnas, int longitud1, int longitud2) {
@@ -325,7 +315,6 @@ public class TarjetaVirtual {
                         if (cont == (filas * columnas)) {
                             this.setEstadoCasillero(filas, columnas, i, j);
                             valor = 1;
-                            System.out.println("Contador: " + cont);
                             return valor;
                         } else {
                             valor = 0;
@@ -350,16 +339,28 @@ public class TarjetaVirtual {
         int area_22=this.verificarUnArea(2, 2, longitud-1,longitud-1);
         
         if(area_33==1){
-            System.out.println("Felicitaciones, ha llenado un área 3x3. Se le acreditan 40 puntos");
+            System.out.println("\n    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
+            System.out.println("    Felicitaciones, ha llenado un área 3x3. Se le acreditan 40 puntos");
+            System.out.println("    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
+            this.imprimirTarjeta();
             return 40;
         }else if(area_32==1){
-            System.out.println("Felicitaciones, ha llenado un área 3x2. Se le acreditan 20 puntos");
+            System.out.println("\n    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
+            System.out.println("    Felicitaciones, ha llenado un área 3x2. Se le acreditan 20 puntos");
+            System.out.println("    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
+            this.imprimirTarjeta();
             return 20;
         }else if(area_23==1){
-            System.out.println("Felicitaciones, ha llenado un área 2x3. Se le acreditan 20 puntos");
+            System.out.println("\n    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
+            System.out.println("    Felicitaciones, ha llenado un área 2x3. Se le acreditan 20 puntos");
+            System.out.println("    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
+            this.imprimirTarjeta();
             return 20;
         }else if(area_22==1){
-            System.out.println("Felicitaciones, ha llenado un área 2x2. Se le acreditan 10 puntos");
+            System.out.println("\n    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
+            System.out.println("    Felicitaciones, ha llenado un área 2x2. Se le acreditan 10 puntos");
+            System.out.println("    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n");
+            this.imprimirTarjeta();
             return 10;
         }else{
         return 0;}

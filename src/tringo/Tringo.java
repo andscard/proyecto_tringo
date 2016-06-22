@@ -20,7 +20,8 @@ public class Tringo {
      private static Juego juego;
 
     public static String menuPrincipal(){
-        System.out.println("************Tringo***********");
+        System.out.println("\n        *********** TRINGO **********\n");
+
         System.out.println("1) Iniciar Juego");
         System.out.println("2) Salir");
         System.out.print("Ingrese opción: ");
@@ -38,8 +39,9 @@ public class Tringo {
            String opcion= Tringo.menuPrincipal();
            switch(opcion){
                case "1":
-                   System.out.println("iniciar juego");
-                   String user="jugador";//scanner
+                   Scanner name=new Scanner(System.in);
+                   System.out.println("\n>> Escriba un nombre de usuario: ");
+                   String user=name.next();
                    Tringo.iniciaJuego(user);
                    break;
                case "2":
@@ -50,8 +52,6 @@ public class Tringo {
            }
         
         }
-        //int numAleatorio = (int) Math.floor(Math.random() * (16 - 0) + 0); 
-      // System.out.println("Ingrese número de celda para la base de la ficha: "+numAleatorio);
       }
     
     public static void iniciaJuego(String user) {
@@ -62,7 +62,8 @@ public class Tringo {
         Tringo.juego.ejecutaTurno();
         }
         if(Tringo.juego.getJugador().getInventario().sizeInventario()==0){
-            System.out.println("Se han terminado las fichas, juego terminado");
+            System.out.println("\n==> Se han terminado las fichas, juego terminado <==");
+            System.out.println("         ***FIN DEL JUEGO***");
             
         }
     
