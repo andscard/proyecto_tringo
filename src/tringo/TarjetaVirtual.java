@@ -118,7 +118,7 @@ public class TarjetaVirtual {
 
     public int  ubicarFichaB(Ficha fichaB, int posicion) {
         int check = 0;
-        for (int i = 1; i < this.tab.length - 1; i++) {
+        for (int i = 1; i < this.tab.length ; i++) {
             for (int j = 1; j < this.tab.length - 1; j++) {
 
                 if ((this.tab[i][j].getContenido() == posicion) && (this.tab[i][j].getEstado() == 1)) {
@@ -373,10 +373,19 @@ public class TarjetaVirtual {
                for(int j=0; j<this.tab.length;j++){
                    
                    if(this.tab[i][j].getEstado()==0){
-                       System.out.print("-    ");
+                          if(this.tab[i][j].getContenido()>9){
+                             System.out.print(" -    ");
+                            }else{
+                            System.out.print(" "+"-"+ "    ");}
+                         
+   //                    System.out.print("-    ");
                    }
                    else {
-                   System.out.print(this.tab[i][j].getEstado()+ "    ");}
+                       if(this.tab[i][j].getContenido()>9){
+                            System.out.print(this.tab[i][j].getContenido()+ "    ");
+                            }else{
+                            System.out.print(" "+this.tab[i][j].getContenido()+ "    ");}
+                         }
             }
            System.out.println();
         }

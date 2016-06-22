@@ -23,6 +23,7 @@ public class Tringo {
         System.out.println("************Tringo***********");
         System.out.println("1) Iniciar Juego");
         System.out.println("2) Salir");
+        System.out.print("Ingrese opción: ");
         
         Scanner s= new Scanner(System.in);
         String i=s.next();

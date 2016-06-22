@@ -42,8 +42,8 @@ public class Ficha {
             
             case "A":
                 System.out.println("         _ _");
-                System.out.println("        |_ _|");
                 System.out.println("        |_*_|");
+                System.out.println("        |_ _|");
 
                 break;
             case "B":
@@ -62,8 +62,8 @@ public class Ficha {
                 break;
             case "E":
                 System.out.println("         _ _ _ _");
-                System.out.println("     _ _|_ _|_ _|");
-                System.out.println("    |_ _|_*_|");
+                System.out.println("     _ _|_*_|_ _|");
+                System.out.println("    |_ _|_ _|");
                 break;
             case "F":
                 System.out.println("     _ _ ");
