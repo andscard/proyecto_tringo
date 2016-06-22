@@ -18,7 +18,7 @@ public class temporizadorTurno extends Thread {
     long tiempo;
     int disminuir;
     public temporizadorTurno() {
-        this.tiempo=5;
+        this.tiempo=10;
         this.disminuir=1;
         
     }
@@ -37,7 +37,7 @@ public class temporizadorTurno extends Thread {
         if(disminuir==0) return;
         try {
             //System.out.println("en el try del run");
-            Thread.sleep(TimeUnit.SECONDS.toMillis(5));
+            Thread.sleep(TimeUnit.SECONDS.toMillis(tiempo));
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_MINUS);
             robot.keyPress(KeyEvent.VK_2);

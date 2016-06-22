@@ -46,19 +46,20 @@ public class Juego {
               
             Ficha ficha=jugador.FichaEnJuego();
             ficha.imprimirFicha();
-            
+             temporizadorTurno temp;
+              temp=new temporizadorTurno();
+               temp.start();
+           
             try{
                 int valido=0;
                 while(valido==0){
                 System.out.println("Ingrese celda para la base(1 al 25 [-1 para saltar ficha]): ");
                 
-              temporizadorTurno t=new temporizadorTurno();
-              t.start();
                 String op=sc.next();
                 int posicion= Integer.parseInt(op);
                 
                 if(posicion ==-1){
-                    t.disminuir=0;
+                    temp.setDisminuir(0);
                     valido=1;
                     }
                 else if(posicion==-2){
@@ -67,11 +68,14 @@ public class Juego {
                     System.out.println("***Ha perdido 7 puntos***");
                 }
                 else{
-                                        t.disminuir=0;
+                                        temp.setDisminuir(0);
                     valido=this.tarjeta.ubicarFichaTablero(ficha, posicion);
                     }
-                }
                 
+                }
+                    temp.stop();
+             
+               
                 this.tarjeta.imprimirTarjeta();
                 this.tarjeta.verificarPuntosPorAreas();
                 int puntos=tarjeta.verificarPuntosPorAreas();
