@@ -90,7 +90,7 @@ public class Juego {
              
                
                 this.tarjeta.imprimirTarjeta();
-                this.tarjeta.verificarPuntosPorAreas();
+                //this.tarjeta.verificarPuntosPorAreas();
                 int puntos=tarjeta.verificarPuntosPorAreas();
                 jugador.aumentaPuntos(puntos);
     

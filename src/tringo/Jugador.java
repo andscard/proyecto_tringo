@@ -13,7 +13,6 @@ public class Jugador {
     private String user;
     private int turno;
     private int puntos;
-    private TarjetaVirtual tarjeta;
     private InventarioFichas inventario;
 
     public InventarioFichas getInventario() {
@@ -28,7 +27,6 @@ public class Jugador {
         this.user=user;
         this.turno= 0;
         this.puntos= 0;
-        this.tarjeta= new TarjetaVirtual();
         this.inventario=new InventarioFichas();
     }
 
@@ -74,12 +72,5 @@ public class Jugador {
             }
     }
     
-    public void ubicarFichaJugador(int celda_tablero, Ficha ficha){
-    int puntos;
-        tarjeta.ubicarFichaTablero(ficha, celda_tablero);
-        tarjeta.imprimirTarjeta();
-        puntos=tarjeta.verificarPuntosPorAreas();
-        this.setPuntos(puntos);
-    }
     
 }
