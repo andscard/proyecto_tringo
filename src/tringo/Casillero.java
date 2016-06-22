@@ -24,10 +24,10 @@ public class Casillero {
     * @param contenido tipo String
     * @param estado tipo int
     */
-    public Casillero(int contendio, int estado){
+    public Casillero(int cont, int estado){
   
-        contenido=contenido;
-        estado=estado;
+        this.contenido=cont;
+        this.estado=estado;
         }
 
 
