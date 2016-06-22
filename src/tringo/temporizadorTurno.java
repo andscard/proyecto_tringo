@@ -16,16 +16,25 @@ import java.util.concurrent.TimeUnit;
 public class temporizadorTurno extends Thread {
     
     long tiempo;
-
+    int disminuir;
     public temporizadorTurno() {
         this.tiempo=5;
+        this.disminuir=1;
         
-        
+    }
+
+    public int getDisminuir() {
+        return disminuir;
+    }
+
+    public void setDisminuir(int disminuir) {
+        this.disminuir = disminuir;
     }
     
     
     @Override
     public void run() {
+        if(disminuir==0) return;
         try {
             //System.out.println("en el try del run");
             Thread.sleep(TimeUnit.SECONDS.toMillis(5));

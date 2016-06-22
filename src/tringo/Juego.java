@@ -58,6 +58,7 @@ public class Juego {
                 int posicion= Integer.parseInt(op);
                 
                 if(posicion ==-1){
+                    t.disminuir=0;
                     valido=1;
                     }
                 else if(posicion==-2){
@@ -66,6 +67,7 @@ public class Juego {
                     System.out.println("***Ha perdido 7 puntos***");
                 }
                 else{
+                                        t.disminuir=0;
                     valido=this.tarjeta.ubicarFichaTablero(ficha, posicion);
                     }
                 }
